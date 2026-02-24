@@ -88,4 +88,3 @@ UI is built with **UMG + Attribute Binding**.
 - Stamina Bar  
 - Ability Cooldown Indicators (WIP)  
 
-### Data Flow
