@@ -23,8 +23,8 @@ void AGapPlayerController::OnPossess(APawn* aPawn)
     {
         PlayerCharacter = CastChecked<AGapBaseCharacter>(GetCharacter());
 
-        Input->BindAction(InputData.MoveAction, ETriggerEvent::Triggered, PlayerCharacter.Get(), &AGapBaseCharacter::MoveAction);
-        Input->BindAction(InputData.LookAction, ETriggerEvent::Triggered, PlayerCharacter.Get(), &AGapBaseCharacter::LookAction);
+        /*Input->BindAction(InputData.MoveAction, ETriggerEvent::Triggered, PlayerCharacter.Get(), &AGapBaseCharacter::MoveAction);
+        Input->BindAction(InputData.LookAction, ETriggerEvent::Triggered, PlayerCharacter.Get(), &AGapBaseCharacter::LookAction);*/
     }
 }
 

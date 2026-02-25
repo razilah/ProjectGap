@@ -14,9 +14,7 @@ void APlayerCharacter::PossessedBy(AController* NewController)
 {
 	Super::PossessedBy(NewController);
 
-	//InitAbilitySystemComponent();
 	InitAbilities();
-	InitEffects();
 	InitHUD();
 }
 

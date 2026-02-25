@@ -17,8 +17,7 @@ class UGapAttributeSet;
 class UGameplayAbility;
 class UGameplayEffect;
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnHealthChangedSignature, float, NewHealth, FGameplayTagContainer,
-	EffectTags);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnHealthChangedSignature, float, NewHealth, FGameplayTagContainer, EffectTags);
 
 UCLASS()
 class GAP_API AGapBaseCharacter : public ACharacter, public IAbilitySystemInterface
@@ -28,8 +27,6 @@ class GAP_API AGapBaseCharacter : public ACharacter, public IAbilitySystemInterf
 public:
 	// Sets default values for this character's properties
 	AGapBaseCharacter();
-
-	
 
 	UFUNCTION(BlueprintPure, Category = "GAS")
 	UDA_AbilityList* GetGrantedAbilitiesDataAsset() { return GrantedAbilitiesData; }
@@ -46,21 +43,11 @@ public:
 
 	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 
-	UFUNCTION()
-	void MoveAction(const FInputActionValue& Value);
-
-	UFUNCTION()
-	void LookAction(const FInputActionValue& Value);
-
 protected:
 
 	virtual void BeginPlay() override;
 
 	void InitAbilities();
-	void InitEffects() const;
-
-	
-
 
 private:
 

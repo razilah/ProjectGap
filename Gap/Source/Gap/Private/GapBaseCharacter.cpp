@@ -10,8 +10,6 @@ AGapBaseCharacter::AGapBaseCharacter()
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	AbilitySystemComponent = CreateDefaultSubobject<UGapAbilitySystemComponent>("ASC");
-
 }
 
 UAbilitySystemComponent* AGapBaseCharacter::GetAbilitySystemComponent() const
@@ -22,13 +20,6 @@ UAbilitySystemComponent* AGapBaseCharacter::GetAbilitySystemComponent() const
 void AGapBaseCharacter::BeginPlay()
 {
 	Super::BeginPlay();
-
-	/*if (IsValid(AbilitySystemComponent))
-	{
-		AttributeSet = CastChecked<UGapAttributeSet>(AbilitySystemComponent->GetSet<UGapAttributeSet>());
-
-		InitAbilities();
-	}*/
 }
 
 void AGapBaseCharacter::InitAbilities()
@@ -48,18 +39,6 @@ void AGapBaseCharacter::InitAbilities()
 	}
 }
 
-void AGapBaseCharacter::InitEffects() const
-{
-
-}
-
-void AGapBaseCharacter::MoveAction(const FInputActionValue& Value)
-{
-}
-
-void AGapBaseCharacter::LookAction(const FInputActionValue& Value)
-{
-}
 
 
 
