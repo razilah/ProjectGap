@@ -26,8 +26,9 @@ Input is handled using **UE5 Enhanced Input** and mapped to **Gameplay Abilities
 | Move | WASD | — | Locomotion via Motion Matching |
 | Look | Mouse | — | Camera control |
 | Jump | Space | — | Jump via Motion Matching |
-| Heavy Attack | LMB | `Abilities.Combat.Attack` | Line trace attack with finisher combo with AOE |
-| Heal | E | `Ability.Combat.Areal` | Support skill with AOE |
+| Heavy Attack | LMB | `Ability.Combat.Attack` | Line trace attack with finisher combo with AOE |
+| Heal | Q | `Ability.Main.Heal` | Support skill with AOE using TargetActor |
+| Dash | E | `Ability.Movement.Dash` | Dash ability |
 
 Abilities are triggered through **ASC Input Binding → Gameplay Tags → Ability Activation**.
 
@@ -46,7 +47,7 @@ Abilities are triggered through **ASC Input Binding → Gameplay Tags → Abilit
 | `GapAttributeSet` | Health attributes |
 | `GameplayAbility` | Base class for all abilities |
 | `GapPlayerController` | Input → Ability binding layer |
-| `DA_AbilityList` | GAS granted abilities list |
+| `DA_AbilityList` | GAS granted ability list |
 
 ---
 
