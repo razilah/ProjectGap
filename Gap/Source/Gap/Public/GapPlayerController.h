@@ -20,12 +20,11 @@ struct FEnhancedInputData
 {
     GENERATED_USTRUCT_BODY()
 
-    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Mapping context")
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Input | MappingContext")
     UInputMappingContext* InputMapping = nullptr;
-    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Movement")
-    UInputAction* MoveAction = nullptr;
-    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Movement")
-    UInputAction* LookAction = nullptr;
+
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Input | GAS")
+    UInputAction* DashAction = nullptr;
 };
 
 UCLASS()
@@ -42,8 +41,13 @@ protected:
 
     virtual void OnPossess(APawn* aPawn) override;
 
-    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "_Enhanced input settings")
+	virtual void SetupInputComponent() override;
+
+	void OnDashPressed();
+
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Input | Enhanced Input")
     FEnhancedInputData InputData;
+
 
 private:
     void ControllerSetup();

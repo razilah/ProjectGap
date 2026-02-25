@@ -11,21 +11,37 @@
 void AGapPlayerController::BeginPlay()
 {
 	Super::BeginPlay();
-
-	ControllerSetup();
 }
 
 void AGapPlayerController::OnPossess(APawn* aPawn)
 {
     Super::OnPossess(aPawn);
 
+    ControllerSetup();
+	SetupInputComponent();   
+}
+
+void AGapPlayerController::SetupInputComponent()
+{
     if (UEnhancedInputComponent* Input = CastChecked<UEnhancedInputComponent>(InputComponent))
     {
-        PlayerCharacter = CastChecked<AGapBaseCharacter>(GetCharacter());
-
-        /*Input->BindAction(InputData.MoveAction, ETriggerEvent::Triggered, PlayerCharacter.Get(), &AGapBaseCharacter::MoveAction);
-        Input->BindAction(InputData.LookAction, ETriggerEvent::Triggered, PlayerCharacter.Get(), &AGapBaseCharacter::LookAction);*/
+        Input->BindAction(InputData.DashAction, ETriggerEvent::Triggered, this, &AGapPlayerController::OnDashPressed);
     }
+}
+
+void AGapPlayerController::OnDashPressed()
+{
+    PlayerCharacter = CastChecked<AGapBaseCharacter>(GetOwner());
+
+    if (PlayerCharacter.IsValid())
+    {
+		UAbilitySystemComponent* ASC = PlayerCharacter->GetAbilitySystemComponent();
+
+        if (ASC)
+        {
+            ASC->TryActivateAbilitiesByTag(FGameplayTagContainer(FGameplayTag::RequestGameplayTag(FName("Ability.Movement.Dash"))));
+		}
+	}
 }
 
 void AGapPlayerController::ControllerSetup()

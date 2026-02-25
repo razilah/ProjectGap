@@ -4,3 +4,10 @@
 
 #include "CoreMinimal.h"
 
+UENUM(BlueprintType)
+enum class EGapAbilityInputID : uint8
+{
+	None,
+	Confirm,
+	Cancel
+};
