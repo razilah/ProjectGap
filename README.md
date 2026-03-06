@@ -5,6 +5,15 @@ Project Gap is a Unreal Engine 5 prototype that integrates **Motion Matching (GA
 This project focuses on gameplay systems architecture, input-driven abilities, and attribute-driven UI rather than polished game content.
 
 ---
+## 📌 How to run packaged file
+1. Navigate to the Releases section of this repository (on your right hand side).
+2. Download the latest .zip file under Assets.
+3. Extract the archive to any location on your local machine.
+4. Run the executable inside the extracted folder to launch the project.
+
+Alternatively, you can access the releases directly here: https://github.com/razilah/ProjectGap/releases
+
+---
 
 ## 🔧 Engine & Dependencies
 
@@ -85,7 +94,8 @@ UI is built with **UMG + Attribute Binding**.
 
 ### HUD Elements
 - Health Bar  
-- Mana Bar  
-- Stamina Bar  
-- Ability Cooldown Indicators (WIP)  
+- Ability Cooldown
+- Ability Input Binds
+
+
 
