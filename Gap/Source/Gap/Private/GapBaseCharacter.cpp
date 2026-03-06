@@ -34,6 +34,7 @@ void AGapBaseCharacter::InitAbilities()
 			{
 				const FGameplayAbilitySpec AbilitySpec(Ability, 1);
 				AbilitySystemComponent->GiveAbility(AbilitySpec);
+
 			}
 		}
 	}

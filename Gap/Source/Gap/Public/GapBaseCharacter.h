@@ -17,6 +17,7 @@ class UGapAttributeSet;
 class UGameplayAbility;
 class UGameplayEffect;
 
+
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnHealthChangedSignature, float, NewHealth, FGameplayTagContainer, EffectTags);
 
 UCLASS()

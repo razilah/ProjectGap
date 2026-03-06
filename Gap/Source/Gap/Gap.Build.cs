@@ -13,7 +13,8 @@ public class Gap : ModuleRules
 			"Core", 
 			"CoreUObject", 
 			"Engine", "InputCore", 
-			"EnhancedInput", "GameplayTasks", 
+			"EnhancedInput", 
+			"GameplayTasks", 
 			"GameplayTags", 
 			"GameplayAbilities" 
 		});

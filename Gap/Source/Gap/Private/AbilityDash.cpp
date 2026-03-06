@@ -22,9 +22,12 @@ void UAbilityDash::ActivateAbility(const FGameplayAbilitySpecHandle Handle, cons
 		return;
 	}
 
+	GetAbilitySystemComponentFromActorInfo()->AddGameplayCue(FGameplayTag::RequestGameplayTag(FName("GameplayCue.Movement.Dash")));
+
 	AGapBaseCharacter* Character = Cast<AGapBaseCharacter>(ActorInfo->AvatarActor.Get());
 	if (Character)
 	{
+
 		FVector DashDirection = Character->GetActorForwardVector();
 		float DashStrength =  DashDistance / DashDuration;
 
@@ -52,7 +55,8 @@ void UAbilityDash::ActivateAbility(const FGameplayAbilitySpecHandle Handle, cons
 void UAbilityDash::EndAbility(const FGameplayAbilitySpecHandle Handle, const FGameplayAbilityActorInfo* ActorInfo, const FGameplayAbilityActivationInfo ActivationInfo, bool bReplicateEndAbility, bool bWasCancelled)
 {
 	Super::EndAbility(Handle, ActorInfo, ActivationInfo, bReplicateEndAbility, bWasCancelled);
-	UE_LOG(LogTemp, Log, TEXT("Dash Ability ended!"));
+	
+	GetAbilitySystemComponentFromActorInfo()->RemoveGameplayCue(FGameplayTag::RequestGameplayTag(FName("GameplayCue.Movement.Dash")));
 }
 
 void UAbilityDash::OnDashFinished()
@@ -62,5 +66,4 @@ void UAbilityDash::OnDashFinished()
 	// End the ability when the dash finishes
 	EndAbility(CurrentSpecHandle, CurrentActorInfo, CurrentActivationInfo, true, false);
 
-	UE_LOG(LogTemp, Log, TEXT("Dash finished!"));
 }
